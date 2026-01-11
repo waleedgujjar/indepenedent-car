@@ -58,7 +58,6 @@ const CarsAuction = () => {
         <SearchFilterHeader
           onSearchChange={setSearchQuery}
           onSortChange={setSortBy}
-          onFilterChange={handleFilterChange}
           resultsCount={filteredCars.length}
           isFilterOpen={isFilterOpen}
           onToggleFilter={() => setIsFilterOpen(!isFilterOpen)}
