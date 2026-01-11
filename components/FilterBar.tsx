@@ -1,10 +1,15 @@
-import { ChevronDown } from "lucide-react";
 import { makes, models, years, types } from "@/lib/data/cars";
-import { FilterOption } from "@/lib/types/car";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 interface FilterSelectProps {
   label: string;
-  options: FilterOption[];
+  options: { value: string; label: string }[];
   value: string;
   onChange: (value: string) => void;
 }
@@ -12,21 +17,19 @@ interface FilterSelectProps {
 const FilterSelect = ({ label, options, value, onChange }: FilterSelectProps) => {
   return (
     <div className="flex flex-col gap-1.5">
-      <label className="text-sm font-medium text-foreground">{label}</label>
-      <div className="relative">
-        <select
-          value={value}
-          onChange={(e) => onChange(e.target.value)}
-          className="filter-select appearance-none w-full min-w-[140px] pr-10"
-        >
+      <label className="text-sm font-medium text-muted-foreground">{label}</label>
+      <Select value={value} onValueChange={onChange}>
+        <SelectTrigger className="w-full h-11 bg-background border-[#00000020] rounded-xl">
+          <SelectValue placeholder={`Select ${label}`} />
+        </SelectTrigger>
+        <SelectContent>
           {options.map((option) => (
-            <option key={option.value} value={option.value}>
+            <SelectItem key={option.value} value={option.value}>
               {option.label}
-            </option>
+            </SelectItem>
           ))}
-        </select>
-        <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
-      </div>
+        </SelectContent>
+      </Select>
     </div>
   );
 };
@@ -43,7 +46,7 @@ interface FilterBarProps {
 
 const FilterBar = ({ filters, onFilterChange }: FilterBarProps) => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-4 bg-card rounded-xl border border-[#0000004D] w-full">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-5 bg-card rounded-2xl border border-[#00000020] shadow-sm w-full">
       <FilterSelect
         label="Make"
         options={makes}

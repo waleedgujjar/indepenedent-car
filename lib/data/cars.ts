@@ -118,7 +118,7 @@ export const cars: Car[] = [
 ];
 
 export const makes = [
-  { value: "", label: "Select Make" },
+  { value: "all", label: "Select Make" },
   { value: "jaguar", label: "Jaguar" },
   { value: "bmw", label: "BMW" },
   { value: "mercedes", label: "Mercedes-Benz" },
@@ -128,7 +128,7 @@ export const makes = [
 ];
 
 export const models = [
-  { value: "", label: "Select Model" },
+  { value: "all", label: "Select Model" },
   { value: "xf", label: "XF" },
   { value: "xe", label: "XE" },
   { value: "f-type", label: "F-Type" },
@@ -136,7 +136,7 @@ export const models = [
 ];
 
 export const years = [
-  { value: "", label: "Select Year" },
+  { value: "all", label: "Select Year" },
   { value: "2024", label: "2024" },
   { value: "2023", label: "2023" },
   { value: "2022", label: "2022" },
@@ -147,7 +147,7 @@ export const years = [
 ];
 
 export const types = [
-  { value: "", label: "Select Type" },
+  { value: "all", label: "Select Type" },
   { value: "sedan", label: "Sedan" },
   { value: "suv", label: "SUV" },
   { value: "coupe", label: "Coupe" },
