@@ -1,5 +1,6 @@
-import { Clock, Gauge, Fuel, Settings, Calendar, Heart, Bell } from "lucide-react";
-import { Car } from "@/types/car";
+import { Gauge, Fuel, Settings, Calendar, Heart, Bell } from "lucide-react";
+import Image from "next/image";
+import { Car } from "@/lib/types/car";
 
 interface CarCardProps {
   car: Car;
@@ -25,10 +26,13 @@ const CarCard = ({ car, onBidNow, onViewMore }: CarCardProps) => {
           className="relative rounded-lg overflow-hidden flex-shrink-0"
           style={{ width: '439px', height: '264px', maxWidth: '100%' }}
         >
-          <img
+          <Image
             src={car.image}
             alt={car.title}
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 439px"
+            priority
           />
           <div className="absolute bottom-2 left-2 badge-rating">
             {car.ratingLabel}
